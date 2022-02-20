@@ -1,0 +1,11 @@
+<?php
+
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_user_login().
+ */
+function my_special_module_user_login(UserInterface $account)
+{
+    \Drupal::messenger()->addMessage(t("Welcome @name! You are a special person.", ['@name' => $account->getAccountName()]));
+}
